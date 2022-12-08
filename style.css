@@ -11,7 +11,10 @@
 }
 
 body{
-    background: url(img/fundo.png) center center;
+    background: url(img/fundo.png) center;
+    /* Efeito parallax no fundo */
+    background-attachment: fixed;
+    background-size: cover;
     font-family: 'Noto Sans', sans-serif;
 }
 /*Aqui se inicia o menu*/
@@ -23,6 +26,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-around;
+    /* Ajuda na quebra de elementos para não sobrepor os botões navs */
+    flex-wrap: wrap;
     width: 100%;
     z-index: 1;
 }
@@ -64,12 +69,14 @@ p{
 /*Aqui se inicia o sobre*/
 .sobre{
     display: flex;
-    margin-top: 18%;
+    flex-wrap: wrap-reverse;
+    margin-top: 290px;
 }
 
 .imagem1{
-    margin-top: 50px;
-    margin-left: 4%;
+    display: flex;
+    justify-items: center;
+    margin: auto;
 }
 
 .text h1{
@@ -80,13 +87,13 @@ p{
     color: #161224;
     width: 60%;
     text-align: center;
-    margin-top: 5%;
-    margin-left: 3%;
-    padding: 90px 40px;
+    margin: 80px 0px 0px 30px;
+    padding: 35px 25px;
     border-radius: 60px 3px;
     background-color: #00ff88;
     box-shadow: 0px 10px 40px -12px #00000056;
-    font-size: 20px;
+    font-size: 20px; 
+    min-width: 600px;
 }
 /*Aqui se inicia as habilidades*/
 .habilidades{
@@ -102,8 +109,8 @@ p{
     color: #161224;
     width: 60%;
     text-align: center;
-    margin-top: 5%;
-    margin-left: 6%;
+    /* Habilitar margin de distância que não tinha nessa div */
+    margin: 5% 6%;
     padding: 80px 40px;
     border-radius: 3px 60px;
     background-color: #00ff88;
@@ -180,3 +187,15 @@ iframe{
     margin-left: 9%;
 }
 
+/* Adicionando media para cuidar da responsividade do site.
+ Seria interessante você fazer para tamanhos menores também */
+@media (max-width: 1451px) {
+    .text{
+        margin: 0;
+        border-radius: 0px;
+        min-width: 100%;
+    }
+    .sobre{
+        margin-top: 100px;
+    }
+}
